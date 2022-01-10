@@ -1,0 +1,75 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
+        <PackageReference Include="Mapster" Version="7.2.0" />
+        <PackageReference Include="MediatR" Version="10.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.1.0" />
+        <PackageReference Include="Telegram.Bot" Version="17.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Handlers\UpdateRequest.cs">
+        <DependentUpon>UpdateHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Api\ShawermaApiKeyRequest.cs">
+        <DependentUpon>ShawermaApiKeyHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Handlers\UsageMessageRequest.cs">
+        <DependentUpon>UsageMessageHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Handlers\HandleMessageRequest.cs">
+        <DependentUpon>HandleMessageRequestHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Handlers\TextMessageRequest.cs">
+        <DependentUpon>TextMessageHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Api\GetNearbyShawermaRequest.cs">
+        <DependentUpon>GetNearbyShawermaRequestHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Handlers\CallbackQueryRequest.cs">
+        <DependentUpon>CallbackQueryRequestHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Handlers\InlineQueryRequest.cs">
+        <DependentUpon>InlineQueryRequestHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Handlers\LocationMessageRequest.cs">
+        <DependentUpon>LocationMessageRequestHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Api\GetRestaurantInfoRequest.cs">
+        <DependentUpon>GetRestaurantInfoRequestHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Handlers\SendRestaurantExtendedInfoRequest.cs">
+        <DependentUpon>SendRestaurantExtendedInfoRequestHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Handlers\SendRestaurantInfoRequest.cs">
+        <DependentUpon>SendRestaurantInfoRequestHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Texts.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Texts.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Handlers\GdeCommandRequest.cs">
+        <DependentUpon>GdeCommandRequestHandler.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Db\LogUserRequest.cs">
+        <DependentUpon>LogUserHandler.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Texts.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Texts.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\GdeShawerma.Db\GdeShawerma.Db.csproj" />
+    </ItemGroup>
+</Project>
